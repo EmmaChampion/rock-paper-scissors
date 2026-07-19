@@ -26,37 +26,43 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     //Case: Tie
     if (humanChoice === computerChoice) {
-        results.textContent = "It's a tie!";
+        roundResults.textContent = "It's a tie!";
     }
     //Case: Human wins
     else if (humanChoice === "rock" && computerChoice === "scissors") {
-        results.textContent = "You win! Rock beats Scissors.";
+        roundResults.textContent = "You win! Rock beats Scissors.";
         humanScore++;
+        humanDisplay.textContent = `Your score: ${humanScore}`;
     }
     else if (humanChoice === "paper" && computerChoice === "rock") {
-        results.textContent = "You win! Paper beats Rock.";
+        roundResults.textContent = "You win! Paper beats Rock.";
         humanScore++;
+        humanDisplay.textContent = `Your score: ${humanScore}`;
     }
     else if (humanChoice === "scissors" && computerChoice === "paper") {
-        results.textContent = "You win! Scissors beats Paper.";
+        roundResults.textContent = "You win! Scissors beats Paper.";
         humanScore++;
+        humanDisplay.textContent = `Your score: ${humanScore}`;
     }
     //Case: Computer wins
     else if (humanChoice === "rock" && computerChoice === "paper") {
-        results.textContent = "You lose! Paper beats Rock.";
+        roundResults.textContent = "You lose! Paper beats Rock.";
         computerScore++;
+        computerDisplay.textContent = `Computer score: ${computerScore}`;
     }
     else if (humanChoice === "paper" && computerChoice === "scissors") {
-        results.textContent = "You lose! Scissors beats Paper.";
+        roundResults.textContent = "You lose! Scissors beats Paper.";
         computerScore++;
+        computerDisplay.textContent = `Computer score: ${computerScore}`;
     }
     else if (humanChoice === "scissors" && computerChoice === "rock") {
-        results.textContent = "You lose! Rock beats Scissors.";
+        roundResults.textContent = "You lose! Rock beats Scissors.";
         computerScore++;
+        computerDisplay.textContent = `Computer score: ${computerScore}`;
     }
     //Should not occur - Undefined inputs
     else {
-        results.textContent = "Error";
+        roundResults.textContent = "Error";
     }
 }
 
@@ -94,5 +100,14 @@ paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
 scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 
 
-const results = document.createElement("div");
-document.body.appendChild(results);
+const scores = document.createElement("div");
+document.body.appendChild(scores);
+
+const humanDisplay = document.createElement("p");
+humanDisplay.textContent = `Your score: ${humanScore}`;
+const computerDisplay = document.createElement("p");
+computerDisplay.textContent = `Computer score: ${computerScore}`;
+scores.appendChild(humanDisplay);
+scores.appendChild(computerDisplay);
+const roundResults = document.createElement("p");
+scores.appendChild(roundResults);
