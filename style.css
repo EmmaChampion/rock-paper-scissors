@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(0, 0, 86);
+    color: whitesmoke;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+img {
+    width: 10rem;
+    height: auto;
+}
+
+button {
+    background-color: rgb(225, 224, 224);
+    padding: 10px 20px;
+}
+
+#player-choices {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px;
+}
+
+.image-label {
+    text-align: center;
+    font-size: 2rem;
+    font-weight:600;
+}
