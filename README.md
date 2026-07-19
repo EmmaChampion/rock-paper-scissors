@@ -10,3 +10,8 @@ Concepts:
 - Basic JavaScript
 - DOM Manipulation/Events
 - Git Branching
+
+Image sources:
+- Rock: https://freesvg.org/vector-image-of-a-boulder
+- Paper: https://freesvg.org/loose-paper-leaf-vector-image
+- Scissors: https://freesvg.org/small-red-scissors-line-art-vector-illustration
