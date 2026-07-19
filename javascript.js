@@ -27,6 +27,10 @@ function playRound(humanChoice, computerChoice) {
     //Case: Tie
     if (humanChoice === computerChoice) {
         roundResults.textContent = "It's a tie!";
+        humanScore++;
+        humanDisplay.textContent = `Your score: ${humanScore}`;
+        computerScore++;
+        computerDisplay.textContent = `Computer score: ${computerScore}`;
     }
     //Case: Human wins
     else if (humanChoice === "rock" && computerChoice === "scissors") {
@@ -64,29 +68,29 @@ function playRound(humanChoice, computerChoice) {
     else {
         roundResults.textContent = "Error";
     }
+
+    if (humanScore == 5 || computerScore == 5) {
+        gameOver();
+    }
 }
 
-/*function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-
-    //Game consists of 5 rounds
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
+function gameOver() {
+    const gameResults = document.createElement("p");
+    if (humanScore == computerScore) {
+        gameResults.textContent = "Game over! It's a tie!";
     }
-
-    //Determine and print the winner
-    console.log(`Final scores:\nYou: ${humanScore}\tComputer: ${computerScore}`);
-    if (humanScore > computerScore) {
-        console.log("You win! Congratulations!");
-    }
-    else if (humanScore < computerScore) {
-        console.log("You lose! Better luck next time.");
+    else if (humanScore == 5) {
+        gameResults.textContent = "Game over! You win! Congratulations!";
     }
     else {
-        console.log("It's a tie!");
+        gameResults.textContent = "Game over! You lose. Better luck next time!";
     }
-}*/
+    scores.appendChild(gameResults);
+
+    rock.onclick = null;
+    paper.onclick = null;
+    scissors.onclick = null;
+}
 
 let humanScore = 0;
 let computerScore = 0;
@@ -95,9 +99,9 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
-rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
-paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
-scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+rock.onclick = () => playRound("rock", getComputerChoice());
+paper.onclick = () => playRound("paper", getComputerChoice());
+scissors.onclick = () => playRound("scissors", getComputerChoice());
 
 
 const scores = document.createElement("div");
