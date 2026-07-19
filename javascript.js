@@ -26,37 +26,37 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     //Case: Tie
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
+        results.textContent = "It's a tie!";
     }
     //Case: Human wins
     else if (humanChoice === "rock" && computerChoice === "scissors") {
-        console.log("You win! Rock beats Scissors.");
+        results.textContent = "You win! Rock beats Scissors.";
         humanScore++;
     }
     else if (humanChoice === "paper" && computerChoice === "rock") {
-        console.log("You win! Paper beats Rock.");
+        results.textContent = "You win! Paper beats Rock.";
         humanScore++;
     }
     else if (humanChoice === "scissors" && computerChoice === "paper") {
-        console.log("You win! Scissors beats Paper.");
+        results.textContent = "You win! Scissors beats Paper.";
         humanScore++;
     }
     //Case: Computer wins
     else if (humanChoice === "rock" && computerChoice === "paper") {
-        console.log("You lose! Paper beats Rock.");
+        results.textContent = "You lose! Paper beats Rock.";
         computerScore++;
     }
     else if (humanChoice === "paper" && computerChoice === "scissors") {
-        console.log("You lose! Scissors beats Paper.");
+        results.textContent = "You lose! Scissors beats Paper.";
         computerScore++;
     }
     else if (humanChoice === "scissors" && computerChoice === "rock") {
-        console.log("You lose! Rock beats Scissors.");
+        results.textContent = "You lose! Rock beats Scissors.";
         computerScore++;
     }
     //Should not occur - Undefined inputs
     else {
-        console.log("Error");
+        results.textContent = "Error";
     }
 }
 
@@ -92,3 +92,7 @@ const scissors = document.querySelector("#scissors");
 rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
 paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
 scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+
+
+const results = document.createElement("div");
+document.body.appendChild(results);
