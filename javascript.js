@@ -17,11 +17,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    choice = prompt("Rock, paper, scissors, shoot! What is your choice?");
-    return choice.toLowerCase();
-}
-
 //Logic for a single round
 function playRound(humanChoice, computerChoice) {
     //Case: Tie
