@@ -73,12 +73,15 @@ function gameOver() {
     const gameResults = document.createElement("p");
     if (humanScore == computerScore) {
         gameResults.textContent = "Game over! It's a tie!";
+        gameResults.style.color = "yellow";
     }
     else if (humanScore == 5) {
         gameResults.textContent = "Game over! You win! Congratulations!";
+        gameResults.style.color = "green";
     }
     else {
         gameResults.textContent = "Game over! You lose. Better luck next time!";
+        gameResults.style.color = "red";
     }
     scores.appendChild(gameResults);
 
@@ -100,6 +103,8 @@ scissors.onclick = () => playRound("scissors", getComputerChoice());
 
 
 const scores = document.createElement("div");
+scores.style.textAlign = "center";
+scores.style.fontSize = "2rem";
 document.body.appendChild(scores);
 
 const humanDisplay = document.createElement("p");
